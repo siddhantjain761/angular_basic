@@ -1,0 +1,16 @@
+.color{
+  color:yellow;
+  background-color: violet;
+
+}
+.fontme{
+  font-size: 33px;
+  font-weight: bold;
+  font-family: serif;
+  letter-spacing: 5px;
+  word-spacing: 5px;
+  line-height: 50px;
+}
+.borderme{
+  border: 10px solid yellow;
+}

@@ -1,0 +1,29 @@
+<p>ngfor works!</p>
+<div *ngFor="let s of student" class="container">  <!-- getting data from student ts and store in s -->
+  <h2>{{s}}</h2>
+  <br>
+
+
+</div>
+<table class="table table-bordered mt-5">
+  <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Email</th>
+  </tr>
+  <tr *ngFor= "let student of teachers">
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.age}}</td>
+      <td>{{student.email}}</td>
+
+  </tr>
+
+
+
+
+
+
+
+</table>

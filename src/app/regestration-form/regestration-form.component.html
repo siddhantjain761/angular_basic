@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="col-md-3"></div>
+    <div class="card" style="margin: 5%;">
+      <div class="card-body">
+        <h1>Login</h1>
+        <div class="col-md-6">
+          <form [formGroup]="regesterform" (ngSubmit)="auntheticate(regesterform)">
+            <div class="form-group">
+              <label for="" class="form-label">username</label>
+              <input type="text" class="form-control" formControlName="uname" minlength="3" pattern="^[a-zA-Z#@$&*_-]*$">
+              <div *ngIf="f.uname.invalid && (f.uname.dirty || f.uname.touched)" class="alert alert-danger">
+                <!-- validations -->
+                <div class="" *ngIf="f.uname.errors.required">
+                  Name is required
+                </div>
+                <div class="" *ngIf="f.uname.errors.minlength">
+                  minimum length shoul be of 3 chatacter
+                </div>
+                <div class="" *ngIf="f.uname.errors.pattern">
+                  pattern fails
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Password</label>
+              <input type="text" class="form-control" formControlName="pass">
+              <div *ngIf="f.pass.invalid && (f.pass.dirty || f.pass.touched)" class="alert alert-danger">
+                <!-- validations -->
+                <div class="" *ngIf="f.pass.errors.required">
+                  password is required
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Date</label>
+              <input type="date" formControlName="date" class="form-control">
+              <div *ngIf="regesterform.controls.date.invalid && f.date.touched"
+                class="alert alert-danger">
+                <!-- validations -->
+                <div class="" *ngIf="f.date.errors.required">
+                  Name is required
+                </div>
+                <div *ngIf="regesterform.controls.date.errors?.dateError" class="alert alert-danger">
+                  {{regesterform.controls.date.errors?.dateError.message}}
+                </div>
+
+
+              </div>
+
+
+            </div>
+            <div class="form-group">
+              <label for="">select city</label>
+              <select class="form-control" formControlName="city">
+                <option value="">ok</option>
+                <option value="k">khajuraho</option>
+                <option value="pune">pune</option>
+              </select>
+              <div *ngIf="f.city.invalid && (f.city.dirty || f.city.touched)" class="alert alert-danger">
+                <!-- validations -->
+                <div class="" *ngIf="f.city.errors.required">
+                  Name is required
+                </div>
+
+
+              </div>
+            </div>
+
+             <div class="form-group">
+              <label for="">Gender</label>
+              <input type="radio" formControlName="gender" name="gender" value="M">
+              <label for="">Male</label>
+              <input type="radio" formControlName="gender" name="gender" value="F">
+              <label for="">Female</label>
+             </div>
+
+
+            <br>
+            <!--  button disable enable option -->
+            <div *ngIf=" regesterform.status == 'VALID' then correct else wrong">
+            </div>
+            <ng-template #correct>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </ng-template>
+
+            <ng-template #wrong>
+              <button type="submit" [disabled]="true" class="btn btn-primary">Submit</button>
+            </ng-template>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p>Form Status: {{regesterform.status }}</p>
+  <!--  <div   [hidden]="!submitted">
+    <h3>Employee Details</h3>
+    <p>user Name:{{f.uname.value}}</p>
+    <p>password:{{f.pass.value}}</p>
+  </div> -->
+
+
+  <!--    Aunthetication of username and password  -->
+  <div *ngIf="submitted">
+    <div *ngIf="isAuthenticated; else failureMsg">
+      <h4>Welcome {{f.uname.value}}</h4>
+    </div>
+    <ng-template #failureMsg>
+      <h4>Invalid Login !!! Please try again...</h4>
+    </ng-template>
+    <button type="button" class="btn btn-primary" (click)="submitted = false">Back</button>
+  </div>
+  <div *ngIf="showdiv">
+    {{msg}}
+  </div>
+
+  <h1>hello</h1>
+  <span>ok</span>
+  <input type="text" value="pk" placeholder="li">
+
+
+
+
+</body>

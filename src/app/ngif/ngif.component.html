@@ -1,0 +1,58 @@
+<!--       <p>ngif works!</p>
+<div class="conntainer">
+  <h1 *ngIf="show">{{name}}</h1>
+  <div *ngIf="department == 'it' then correct else wrong">
+
+  </div>
+  <ng-template #correct>
+    <h1>  the department it is found</h1>
+  </ng-template>
+
+  <ng-template #wrong>
+    <h1>  the department it is not found</h1>
+  </ng-template>
+  <h1>{{name}}</h1>
+  <button bind-disabled="true">yes</button>
+  <button [disabled]=true>yes</button>
+
+
+{{e | titlecase}}
+{{d | date:"shortDate"}}
+</div>
+
+  -->
+  <h1>{{tool}}</h1>
+<h1>siddhant</h1>
+<div>
+  <select name="" id=""   (change)="filter($event.target)">
+    <option value="select category" >select category</option>
+    <option *ngFor= "let student of d,let i = index" [value]="d[i]"> {{d[i]}}</option>
+  </select>
+</div>
+
+
+
+
+  <table class="table table-bordered mt-5">
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+    </tr>
+    <tr *ngFor= "let student of  data">
+        <td>{{student.id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.address}}</td>
+
+    </tr>
+
+    {{'helloword' | sort}}
+
+
+
+
+
+
+
